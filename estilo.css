@@ -1,101 +1,199 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrossel com Swiper</title>
-        <link rel="stylesheet" href="estilo.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 
-</head>
-<body>
+.swiper-container,
+.swiper-wrapper,
+.swiper-slide {
+    overflow: visible !important;
+}
 
-    <h1 style="position: absolute; font-family: 'minhafonte', sans-serif; color: red; bottom: 363px; font-size: 25px;">Thalyson e Jheniffer</h1>
-    <h1 class="dogdoido" style="position: absolute; bottom: 170px; font-family: rajdhani; color: aliceblue; font-size: 17px;">
-        Quem diria que a menina mais bonita apareceria na minha vida com uma rasteira e me deixaria caidinho?
-        Desde nossos passeios no centro até os dates no cinema,
-        cada momento com você é especial e eu não trocaria por nada. Te amo ❤️✨</h1>
-    <p style="position: absolute; bottom: 335px; color: dodgerblue">15.02.25</p>
+      .swiper-container {
+    overflow: visible;
+}
+  
+.imagem {
+    transform: translateY(-30px);
+    z-index: 10;
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            background-color: #1e1e1e;
+            overflow-y: auto;
+        }
+
+        body, html {
+            overflow-y: auto !important;
+        }
+
+
+        .swiper {
+            width: 80%;
+            max-width: 600px;
+            height: 400px;
+        }
+
+        .swiper-slide img {
+             width: 80%;
+             height: auto;
+             object-fit: cover;
+             right: 28px;
+             position: absolute;
+             bottom: 60px;
+             border-radius: 10px;
+
+        }
+
+      
+        .swiper-pagination {
+            bottom: 70px !important
+        }
+
+        @font-face {
+            font-family: 'minhafonte';
+            src: url('font/Welliana.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+.player {
+display: flex;
+align-items: center;
+gap: 10px;
+background: black;
+padding: 10px;
+border-radius: 10px;
+width: auto;
+font-size: 28px;
+}
+
+#playPause {
+background: none;
+border: none;
+font-size: 20px;
+cursor: pointer;
+color: white;
+}
+
+#volumeIcon {
+font-size: 20px;
+color: white;
+}
+
+#volumeSlider {
+width: 100px;
+cursor: pointer;
+}
+
+body {
+margin: 0;
+padding: 0;
+position: relative;
+}
+
+#audiom {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: -1;
+}
+
+#heart {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+audio {
+    position: relative;
+    z-index: 1; 
+  }
+  
+  .faixa {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 62px; 
+    background-color: black;
+    z-index: 0; 
+  }
+
+  #playPause {
+    color: red;
+    position: absolute;
+    left: -55px;
+    top: 3px;
+
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: red; 
+    border-radius: 50%; 
+    cursor: pointer;
+}
+  
+#volumeSlider {
+    appearance: none;
+    width: 105px;
+    height: 6px;
+    background: red;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    left: 6px;
+    position: absolute;
+    top: 22px;
+}
+
+.opp {
+    opacity: 1;
+    filter: blur(0);
+    transition: all 2s;
+    transform: translateY(0);
+}
+
+.hidden {
+    opacity: 1;
+    filter: blur(0);
+    transition: all 2s;
+    transform: translateY(0);
+}
+
+.show {
+    opacity: 0;
+    filter: blur(15px);
+    transition: all 2s;
+    transform: translateX(-100px);
+}
+
+.dogdoido {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+        
+
     
-        
-
-
-    <div class="swiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="fotos/1.jpg" alt="Imagem 1"></div>
-            <div class="swiper-slide"><img src="fotos/2.jpg" alt="Imagem 2"></div>
-            <div class="swiper-slide"><img src="fotos/3.jpg" alt="Imagem 3"></div>
-            <div class="swiper-slide"><img src="fotos/4.jpg" alt="Imagem 4"></div>
-            <div class="swiper-slide"><img src="fotos/5.jpg" alt="Imagem 5"></div>
-            <div class="swiper-slide"><img src="fotos/6.jpg" alt="Imagem 6"></div>
-        </div>
-
-        <div class="swiper-pagination"></div>
-
-        
-    </div>  
-    <div class="scrollable"></div>
-    <div class="faixa"></div>
-    <audio id="audiom" style="bottom: 10px; position: absolute;">
-        <source src="musica/dez.mp3" type="audio/mpeg">
-    </audio>
-    
-    <div class="player" style="position: absolute; bottom: 0px;">
-        <button id="playPause" style="font-size: 30px;">&#9654;</button>
-        <span id="volumeicon" style="font-size: 30px;">&#9654;</span>
-        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
-    </div>
-
-        <video autoplay muted loop id="heart">
-            <source src="video/heartanimation.mp4" type="video/mp4">
-        </video>   
-        
-
-    
-        <div class="conteudo">
-            <div class="hidden" data-anime="opacity">
-                <p style="color: red; position: absolute; bottom: -1033px; left: -340px; font-family:
-                 loved by the king; font-size: 28px;">Onde tudo começou</p>
-                <img src="fotos/ifsp.jpg" alt="Imagem 1" style="position: absolute;
-                 bottom: -961px; left: -326px; width: 130px; border-radius: 10px; height: 189px;">
-            </div>
-
-            <div class="hidden" data-anime="opacity">
-                <p style="color: red; position: absolute; bottom: -1262px; left: -143px; font-family:
-                 loved by the king; font-size: 28px;">Primeiro beijo</p>
-                <img src="fotos/primeiro.png" alt="Imagem 2" style="position: absolute;
-                 bottom: -1189px; left: -152px; width: 130px; border-radius: 10px; height: 199px;">
-            </div>
-
-            <div class="hidden" data-anime="opacity">
-                <p style="color: red; position: absolute; bottom: -1454px; left: -340px; font-family:
-                 loved by the king; font-size: 28px">Primeiro "eu te amo"</p>
-                <img src="fotos/upsc.jpg" alt="Imagem 3" style="position: absolute;
-                 bottom: -1381px; left: -337px; width: 177px; border-radius: 10px; height: 132px;">
-            </div>
-
-            <div class="hidden" data-anime="opacity">
-                <p style="color: red; position: absolute; bottom: -1650px; left: -150px; font-family:
-                 loved by the king; font-size: 28px; width: 111px;">Nosso namoro</p>
-                <img src="fotos/pqcity.jpg" alt="Imagem 2" style="position: absolute;
-                 bottom: -1579px; left: -187px; width: 177px; border-radius: 10px; height: 132px;">
-            </div>
-
-                    
-        </div><link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
-
-</body>
-</html>
-
-
-
-
