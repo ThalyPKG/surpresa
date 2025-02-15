@@ -133,7 +133,7 @@ audio {
     color: red;
     position: absolute;
     left: -55px;
-    top: 8px;
+    top: 5px;
 
 }
 
@@ -155,7 +155,8 @@ audio {
     outline: none;
     cursor: pointer;
     left: 6px;
-    position: absolute
+    position: absolute;
+    top: 22;
 }
 
 
