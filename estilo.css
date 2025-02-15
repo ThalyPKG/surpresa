@@ -133,7 +133,7 @@ audio {
     color: red;
     position: absolute;
     left: -55px;
-    top: -34px;
+    top: 4px;
 
 }
 
@@ -156,7 +156,7 @@ audio {
     cursor: pointer;
     left: 6px;
     position: absolute;
-    top: -16px;
+    top: 22px;
 }
 
 .opp {
