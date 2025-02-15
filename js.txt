@@ -1,0 +1,32 @@
+const swiper = new Swiper('.swiper', {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    navigation: {},
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    loop: true,   
+    autoplay: {  
+        delay: 3000,
+    },
+});
+
+const audio = document.getElementById("audiom");
+const playPauseBtn = document.getElementById("playPause");
+const volumeSlider = document.getElementById("volumeSlider");
+
+playPauseBtn.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play();
+        playPauseBtn.innerHTML = "&#9208;";
+    } else {
+        audio.pause();
+        playPauseBtn.innerHTML = "&#9654;"; 
+    }
+});
+
+volumeSlider.addEventListener("input", () => {
+    audio.volume = volumeSlider.value;
+});
+
